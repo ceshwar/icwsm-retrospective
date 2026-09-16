@@ -9,7 +9,6 @@
 % \usepackage{courier}
 \documentclass[letterpaper]{article} % DO NOT CHANGE THIS
 \usepackage[submission]{aaai2026}  % DO NOT CHANGE THIS
-% \usepackage[submission]{aaai24}  % DO NOT CHANGE THIS
 \usepackage{times}  % DO NOT CHANGE THIS
 \usepackage{helvet}  % DO NOT CHANGE THIS
 \usepackage{courier}  % DO NOT CHANGE THIS
@@ -23,151 +22,65 @@
 \frenchspacing  % DO NOT CHANGE THIS
 \setlength{\pdfpagewidth}{8.5in}  % DO NOT CHANGE THIS
 \setlength{\pdfpageheight}{11in}  % DO NOT CHANGE THIS
-%
-% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \input{sections/00packages}
 
 \usepackage{xcolor}
-\newcommand{\answerYes}[1]{\textcolor{blue}{#1}} 
-\newcommand{\answerNo}[1]{\textcolor{teal}{#1}} 
-\newcommand{\answerNA}[1]{\textcolor{gray}{#1}} 
-\newcommand{\answerTODO}[1]{\textcolor{red}{#1}} 
+\newcommand{\answerYes}[1]{\textcolor{blue}{#1}}
+\newcommand{\answerNo}[1]{\textcolor{teal}{#1}}
+\newcommand{\answerNA}[1]{\textcolor{gray}{#1}}
+\newcommand{\answerTODO}[1]{\textcolor{red}{#1}}
 
-%
-% These are are recommended to typeset listings but not required. See the subsubsection on listing. Remove this block if you don't have listings in your paper.
 \usepackage{newfloat}
 \usepackage{listings}
 \lstset{%
-	basicstyle={\footnotesize\ttfamily},% footnotesize acceptable for monospace
-	numbers=left,numberstyle=\footnotesize,xleftmargin=2em,% show line numbers, remove this entire line if you don't want the numbers.
-	aboveskip=0pt,belowskip=0pt,%
-	showstringspaces=false,tabsize=2,breaklines=true}
+  basicstyle={\footnotesize\ttfamily},
+  numbers=left,numberstyle=\footnotesize,xleftmargin=2em,
+  aboveskip=0pt,belowskip=0pt,
+  showstringspaces=false,tabsize=2,breaklines=true}
 \floatstyle{ruled}
 \newfloat{listing}{tb}{lst}{}
 \floatname{listing}{Listing}
-%
-%\nocopyright
-%
-% PDF Info Is REQUIRED.
-% For /Title, write your title in Mixed Case.
-% Don't use accents or commands. Retain the parentheses.
-% For /Author, add all authors within the parentheses,
-% separated by commas. No accents, special characters
-% or commands are allowed.
-% Keep the /TemplateVersion tag as is
+
 \pdfinfo{
 /Title (From Web(logs) to Web(AI): Questions, Platforms, and Methods across Twenty Editions of ICWSM)
 /Author ()
 /TemplateVersion (2026.1)
 }
 
-% DISALLOWED PACKAGES
-% \usepackage{authblk} -- This package is specifically forbidden
-% \usepackage{balance} -- This package is specifically forbidden
-% \usepackage{color (if used in text)
-% \usepackage{CJK} -- This package is specifically forbidden
-% \usepackage{float} -- This package is specifically forbidden
-% \usepackage{flushend} -- This package is specifically forbidden
-% \usepackage{fontenc} -- This package is specifically forbidden
-% \usepackage{fullpage} -- This package is specifically forbidden
-% \usepackage{geometry} -- This package is specifically forbidden
-% \usepackage{grffile} -- This package is specifically forbidden
-% \usepackage{hyperref} -- This package is specifically forbidden
-% \usepackage{navigator} -- This package is specifically forbidden
-% (or any other package that embeds links such as navigator or hyperref)
-% \indentfirst} -- This package is specifically forbidden
-% \layout} -- This package is specifically forbidden
-% \multicol} -- This package is specifically forbidden
-% \nameref} -- This package is specifically forbidden
-% \usepackage{savetrees} -- This package is specifically forbidden
-% \usepackage{setspace} -- This package is specifically forbidden
-% \usepackage{stfloats} -- This package is specifically forbidden
-% \usepackage{tabu} -- This package is specifically forbidden
-% \usepackage{titlesec} -- This package is specifically forbidden
-% \usepackage{tocbibind} -- This package is specifically forbidden
-% \usepackage{ulem} -- This package is specifically forbidden
-% \usepackage{wrapfig} -- This package is specifically forbidden
-% DISALLOWED COMMANDS
-% \nocopyright -- Your paper will not be published if you use this command
-% \addtolength -- This command may not be used
-% \balance -- This command may not be used
-% \baselinestretch -- Your paper will not be published if you use this command
-% \clearpage -- No page breaks of any kind may be used for the final version of your paper
-% \columnsep -- This command may not be used
-% \newpage -- No page breaks of any kind may be used for the final version of your paper
-% \pagebreak -- No page breaks of any kind may be used for the final version of your paperr
-% \pagestyle -- This command may not be used
-% \tiny -- This is not an acceptable font size.
-% \vspace{- -- No negative value may be used in proximity of a caption, figure, table, section, subsection, subsubsection, or reference
-% \vskip{- -- No negative value may be used to alter spacing above or below a caption, figure, table, section, subsection, subsubsection, or reference
+\setcounter{secnumdepth}{1}
 
-\setcounter{secnumdepth}{1} %May be changed to 1 or 2 if section numbers are desired.
-
-
-% The file aaai22.sty is the style file for AAAI Press
-% proceedings, working notes, and technical reports.
-%
-
-% Title
 \title{From Web(logs) to Web(AI): Questions, Platforms, and Methods\\ across Twenty Editions of ICWSM}
 \author{Anonymous Authors}
-% \title{From Web(logs) to Web(AI) at ICWSM: Questions, Platforms, and Methods Across Twenty Editions}
-
-
-
-
-% removed for AAAI format compliance
-
-% \usepackage[english]{babel}
-% \pagenumbering{arabic}
 
 \begin{document}
 
 \maketitle
-% \pagenumbering{arabic}
-%for page number
-% \thispagestyle{plain}
-% \pagestyle{plain}
-%---
 
 \begin{abstract}
 \input{sections/00_abstract}
-
 \end{abstract}
 
-\input{sections/01_introduction} %1.25 pages
-% \input{sections/2relatedwork.tex} %1 page
-\input{sections/02_related_work} %1 page
-\input{sections/03_corpus_and_methods} %0.75 page
-\input{sections/04_topics_problems_and_phases} %2 page
-\input{sections/05_critical_synthesis} %3 page
-\input{sections/06_research_agenda} %2 page
-\input{sections/07_limitations} %2 page
-\input{sections/08_conclusion} %2 page
-\input{sections/09_ethics} %2 page
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_corpus_and_methods}
+\input{sections/04_topics_problems_and_phases}
+\input{sections/05_critical_synthesis}
+\input{sections/06_research_agenda}
+\input{sections/07_limitations}
+\input{sections/08_conclusion}
+\input{sections/09_ethics}
 \input{sections/10_ai_disclosure}
-% \input{sections/9.0conclusions.tex} %2 page
 
-% Use \bibliography{yourbibfile} instead or the References section will not appear in your paper
-\bibliography{references}
+% References are checked in as TeX so the repository compiles directly on
+% Overleaf without generated BibTeX artifacts.
+\input{sections/references}
 
 \input{sections/checklist}
 
-% \cleardoublepage\makeatletter\@openrightfalse\makeatother
-% \cleardoublepage\makeatletter\makeatother
-% \let\clearpage\relax
-% \openright
 \appendix
 \input{sections/11_appendix}
 
-% \nobibliography{aaai22}
-
-% \section{Acknowledgments}
-
-% \bigskip
-% \noindent Thank you for reading these instructions carefully. We look forward to receiving your electronic files!
-
-% {b}ibliography{references}
 \end{document}
