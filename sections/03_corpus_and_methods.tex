@@ -1,0 +1,41 @@
+% !TeX root = ../main.tex
+\section{Corpus and Methods}
+\subsection{Scope and Retrieval}
+We examine indexed main-conference contributions from 2007--2026, including full papers, shorter contributions, datasets, and demonstrations. We exclude workshops, tutorials, keynote summaries, and prefaces. Our retrieval snapshot is September 16, 2026 UTC.
+
+We retrieved 2,233 records through Crossref's journal endpoint for ICWSM's online ISSN, 2334-0770, and checked volume structure against the AAAI archive.\footnote{\url{https://ojs.aaai.org/index.php/ICWSM/issue/archive}} We excluded 149 records in separate workshop issues, ten front-matter or program summaries, and seven workshop contributions in the 2017 main issue, leaving 2,067 contributions from 2008--2026.
+
+The inaugural edition is absent from this Crossref collection. We therefore retrieved the official 2007 program\footnote{\url{https://www.icwsm.org/program.html}} and its 72 linked abstract pages spanning full papers, short papers, posters, and demonstrations. A short paper and a demonstration share a title; both are retained. The resulting corpus contains \textbf{2,139 contributions}, all with a title and abstract. Conference year follows the numbered volume.
+
+We remove HTML markup and normalize whitespace. Upon publication, we will release identifiers, inclusion decisions, source links, and analysis specifications. The corpus is bounded by the retrieved sources; Appendix~\ref{app:corpus} reports annual counts.
+
+\subsection{Platforms, Topics, and Problem Framings}
+All main period comparisons use \textbf{2007--2011, 2012--2016, 2017--2021, and 2022--2026}, containing 386, 503, 488, and 762 contributions, respectively. Period estimates pool papers, so editions contribute in proportion to their publication counts.
+
+\textbf{Platforms.} Case-insensitive dictionaries identify twenty named platform families and a separate weblog vocabulary (Appendix~\ref{app:platforms}). Twitter includes tweet/retweet terms and seven X-only references from 2023--2026 identified through AI-assisted inspection. Indicators describe mentions in titles and abstracts; a platform mention does not necessarily indicate that its data were analyzed. Categories can overlap.
+
+\textbf{Topics.} We fit nonnegative matrix factorization (NMF) to TF--IDF representations of title/abstract unigrams and bigrams. Terms must occur in at least eight documents and in no more than 70\% of documents. A stop list removes common scholarly and platform terms, and TF--IDF uses sublinear term frequency, yielding 3,837 features. The primary model uses 15 components, NNDSVD-based initialization, seed 42, and a 600-iteration limit. Comparisons use 10, 12, and 18 components and three random initializations. The community component remains stable across the random initializations, with endpoint-period shares between 9.9\% and 10.7\%; some other components are less stable in two runs (minimum matched cosine similarity 0.03 and 0.25). The 15-component choice is exploratory. Labels follow AI-assisted inspection of top terms and high-weight abstracts; Appendix~\ref{app:topics} supplies all labels and top terms.
+
+For document-factor weights $W$ and term-factor weights $H$, we correct component scale before normalizing:
+\[
+q_{ik}=\frac{W_{ik}\sum_v H_{kv}}{\sum_\ell W_{i\ell}\sum_v H_{\ell v}}.
+\]
+Mean topic shares are $100N^{-1}\sum_iq_{ik}$ and sum to 100\%. They describe reconstructed TF--IDF mass. The median largest document weight is 0.45, motivating the use of mixtures.
+
+\textbf{Problem framings.} Eight overlapping categories cover structure/diffusion, prediction/classification, measurement/validity, explanation/intervention, harm/information integrity, governance/participation, support/well-being, and resources/access. Explicit regular expressions yield binary framing cues $b_{ip}$ and prevalence $100N^{-1}\sum_i b_{ip}$. Definitions and example cues appear in Appendix~\ref{app:codebook}. We developed the codebook exploratorily. AI-assisted inspection of 32 cue-positive abstracts removed several incidental uses; this development check does not estimate recall or independent accuracy. We interpret the rates as framing-cue prevalence, not validated counts of papers whose central objective belongs to a category.
+
+Within a topic, we calculate $100\sum_i q_{ik}b_{ip}/\sum_i q_{ik}$. This statistic weights papers by topical membership; its denominator differs from overall framing prevalence. Both axes derive from the same text and can share vocabulary. They are complementary text-derived measures.
+
+\subsection{Sensitivity and Resampling}
+To address changing abstract length, we recompute framing-cue rates on titles plus the first 100 abstract words and on the first 100 abstract words alone. Abstracts shorter than 100 words are retained without padding. We also calculate each paper's number of harm-cue matches per 100 title/abstract words.
+
+For historical vocabulary, we add trolling, flaming, and vandalism terms to the harm category in every edition; spam terms are already included. This check tests coverage under a common expanded vocabulary.
+
+To assess shared vocabulary, we report overlap between each topic's twenty leading terms and all framing lexicons. For the community-governance comparison, we remove all seven governance-matching features from the document representation and fixed topic basis, then re-estimate and normalize document weights. This isolates direct lexical overlap without refitting the topic model.
+
+We generate 2,000 resamples by sampling papers with replacement within each edition and recompute annual and pooled-period estimates with the topic model and codebook fixed. Reported 95\% intervals are the 2.5th and 97.5th percentiles. They describe sensitivity to paper composition in the retrieved corpus; coverage, coding, and model-selection uncertainty remain outside these intervals.
+
+Appendix~\ref{app:boundaries} reports exploratory temporal segmentation. Additional checks vary topic count, initialization, text length, and title deduplication. Track composition remains a separate limitation.
+
+\subsection{Methodological Comparison and Validation Scope}
+Section~\ref{sec:methods_advances} organizes selected studies around sampling and representation, construct measurement, causal and experimental design, governance and disagreement, and research infrastructure. We selected 75 contributions for methodological relevance and coverage across editions. This illustrative bibliography cannot estimate conference-wide adoption or influence. Appendix~\ref{app:validation} specifies independent validation procedures for the framing and topic measures; those results are not incorporated here.
