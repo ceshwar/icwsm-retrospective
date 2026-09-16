@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{@{}p{.16\textwidth}p{.20\textwidth}p{.28\textwidth}p{.28\textwidth}@{}}
+\textbf{Design} & \textbf{ICWSM Example} & \textbf{Requires} & \textbf{Leaves open} \\
+\toprule
+Randomized intervention & Reconsideration prompts on Twitter \citep{p19308} & Random assignment supports a comparison of eligible users assigned to receive the prompt. & Classifier-defined eligibility and outcomes; transfer beyond English replies and the study setting. \\
+\hdashline
+Quasi-random assignment & Civil communication on Roblox \citep{p31365} & Residual stochasticity in matchmaking assignment acts as a quasi-randomization mechanism for the analyzed server comparisons. & Other server properties may co-vary with civility; validity and transfer of the local comparison. \\
+\hdashline
+Matching and difference-in-differences & Fringe-platform participation \citep{p22184} & Comparable untreated trends after matching; no differential concurrent changes explaining the contrast. & Selective migration, cross-platform linkage, and changing composition or exposure. \\
+\hdashline
+Text-adjustment evaluation & Known-effect benchmark tasks \citep{p19362} & Effects are known under the benchmark's construction, enabling comparisons of estimators. & Performance under the benchmark need not transfer to an unknown real-world assignment process. \\
+\hdashline
+Propensity-score stratification & Support language and college alcohol mentions \citep{p14891,p15012} & Conditional exchangeability, overlap, consistent exposure definitions, and appropriate timing. & Unmeasured circumstances and linguistic proxies; balance alone cannot establish exchangeability. \\
+\hdashline
+Two-tier matching & Counseling recommendations \citep{p15016} & Observed behavioral and linguistic covariates suffice to adjust confounding for the defined exposure. & Commenting differs from reading a post or receiving counseling; uptake remains unobserved. \\
+\hdashline
+Outcome-oriented case--control comparison & Psychosocial outcomes on TalkLife \citep{p7326} & Comparisons are conditional on subsequent outcomes and observed baseline groups. & Outcome selection and residual confounding; does not itself identify an assigned intervention's effect. \\
+\hdashline
+Randomization under interference & Cascade-based design \citep{p31322} & The network and diffusion model adequately describe relevant interference in the evaluated setting. & Misspecified or changing networks; simulation performance does not establish a field effect. \\
+\bottomrule
+\end{tabular}
+\caption{Causal-inference designs in ICWSM research, with the conditions each design requires and the questions it leaves open. Examples illustrate each design's use.}
+\label{tab:designs}
+\end{table*}
