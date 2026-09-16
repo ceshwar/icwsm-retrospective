@@ -1,0 +1,28 @@
+% !TeX root = ../main.tex
+\section{Methodological Developments and Recurring Questions}
+\label{sec:methods_advances}
+Selected studies show how methodological problems travel across platform generations. We organize them around sampling and representation, construct measurement, causal and experimental design, governance and disagreement, and research infrastructure. The examples illustrate design choices; they do not estimate conference-wide prevalence.
+
+\subsection{Sampling and Representation}
+Large datasets do not remove the need to specify whose behavior is observed. Early ICWSM work documented uneven Twitter demographics \citep{p14168}. Sampling later became an object of direct comparison: \citet{p14401} compared Twitter's sampled stream with Firehose data, and \citet{p7337} showed that fidelity depends on the scale and unit measured. Community selection raises a related problem. Demographic reweighting, for example, need not improve population prediction \citep{p19287}, while multilingual work broadens the contexts examined without automatically making them representative \citep{p19271}. Sampling should be assessed against a stated target population and question. AI assistance adds a prior question: whose behavior does the observed post reflect?
+
+\subsection{Construct Measurement}
+A trace can support more than one interpretation. In 2007, \citet{icwsm2007_paper19} combined network analysis with a survey of blogging relationships, using evidence beyond the trace to assess what links and comments represented. Later work distinguished follower counts from retweet- and mention-based influence \citep{p14033}.
+
+Text measures make the same problem visible at scale. Dictionary estimates of regional well-being can diverge sharply from survey measures across populations \citep{jaidka2020estimating}. Recent ICWSM work finds similar limits when measuring moral foundations in Chinese: local lexicons lose cultural information, while multilingual and large language models still require human validation \citep{p42650}. LLM-simulated respondents can also distort relationships found in human survey data \citep{p42652}. Assisted writing adds another layer because it can change observed language without the same change in the person \citep{hohenstein2023}.
+
+\subsection{Causal and Experimental Design}
+\label{sec:causal}
+Social media histories provide pretreatment language and behavior, but causal claims require a defensible comparison. Table~\ref{tab:designs} contrasts randomized interventions, quasi-random assignment, difference-in-differences, estimator evaluation, and matching-based designs represented in ICWSM.
+
+\input{sections/tables/causal_designs}
+
+The examples make exposure definitions and comparison groups explicit. Engagement with a counseling post, for example, differs from reading it or receiving counseling. Matching addresses measured differences, while unmeasured confounding can remain. Temporal comparisons require an appropriate counterfactual trajectory, and network settings raise interference questions. \citet{p19362} also show why text-adjustment estimators need evaluation against known-effect tasks. Suggested replies and automated moderation create the same design problem: studies need explicit exposures and credible comparisons, with spillovers addressed when interactions cross users.
+
+\subsection{Governance and Disagreement}
+Questions about judgment and authority appear throughout ICWSM's history. Automatic comment moderation appeared in the inaugural proceedings \citep{icwsm2007_paper59}, and Wikipedia work examined governance through promotion processes \citep{p14013}. Later research connected community rules to perceived governance \citep{p15033}. These examples place classification decisions inside the institutions and norms that give them meaning.
+
+LLM-based annotation and moderation extend those questions to model-generated judgments. Studies document LLM annotation bias \citep{p35879}, moderator disagreement \citep{p42625}, and how LLMs apply Wikipedia neutrality norms \citep{p42630}. A model's agreement with a reference label depends on whose judgment the label represents. Evaluations should document whose labels define the reference and where those decisions are used.
+
+\subsection{Research Infrastructure}
+Tools and datasets shape which studies can be conducted and repeated. CrisisLex supported research on crisis communication \citep{p14538}; the Pushshift Reddit dataset expanded access to community activity \citep{p7347}; Media Cloud and the Methods Hub support news archives and executable methods \citep{p18127,p42804}. Infrastructure also sets conditions on use. Researcher access under the Digital Services Act makes those constraints part of the research question \citep{p42671}, while work on generative AI in crowdwork raises provenance concerns for apparently human-produced inputs \citep{p31452}. In AI-mediated settings, provenance includes model versions and whether content was composed, edited, selected, or generated.
