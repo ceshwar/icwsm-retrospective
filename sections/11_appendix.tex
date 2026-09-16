@@ -1,0 +1,55 @@
+% !TeX root = ../main.tex
+\onecolumn
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
+\section{Corpus and Platform Dictionaries}
+\label{app:corpus}
+Figure~\ref{fig:corpus} reports indexed contributions by edition. These are publication counts, not submission or acceptance counts. The main analysis includes all retained main-conference formats.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.75\textwidth]{figures/01_corpus.png}
+\caption{Annual contributions in the retrieved corpus.}
+\label{fig:corpus}
+\end{figure}
+\subsection{Platform families}
+\label{app:platforms}
+The twenty named platform families are Twitter/X, Reddit, Facebook, Wikipedia, YouTube, Instagram, TikTok/Douyin, Weibo, WeChat, WhatsApp, Telegram, Gab, 4chan, Parler, Mastodon, Bluesky, Flickr, Digg, MySpace, and StackOverflow. A separate weblog indicator matches blogs, weblogs, blogging, bloggers, and blogosphere. Twitter includes tweets and retweets; Reddit includes subreddit and redditor variants; Wikipedia includes Wikipedian variants. StackOverflow allows a space between the two words. Seven X-only cases, identified through AI-assisted inspection, supplement the Twitter vocabulary. All other named families use the explicit name, with case-insensitive word boundaries. The regular expressions used in the analysis will be released upon publication and provide the exact specification. Rates count mentions, can overlap, and do not establish data use.
+
+\section{Topic Components and Complete Distributions}
+\label{app:topics}
+Topic labels describe one exploratory 15-component NMF representation. Table~\ref{tab:topicterms} lists each component's twenty highest-weight terms in order. Figure~\ref{fig:topicsproblems} orders rows by the difference between the last and first fixed periods, from the largest increase to the largest decrease, separately for topics and framings. Component weights and cue prevalences have different denominators.
+\input{sections/tables/topic_terms}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{figures/04_topics_problems.png}
+\caption{Complete annual topic shares and framing-cue prevalences, ordered by endpoint-period change. Topic shares sum to 100\%; framing categories overlap. No historical phase boundaries are imposed.}
+\label{fig:topicsproblems}
+\end{figure}
+\section{Framing Codebook}
+\label{app:codebook}
+The definitions distinguish an intended research problem from the lexical rule used to approximate it. Example cues are illustrative; the regular expressions used in the analysis specify matching exactly. A cue can be incidental, and an absent cue does not establish an absent concern. Categories are not mutually exclusive.
+\input{sections/tables/framing_codebook}
+\section{Sensitivity Results}
+\label{app:sensitivity}
+Table~\ref{tab:sensitivity} reports the harm and community-governance checks using the four main comparison periods. Density is the mean of paper-level cue matches divided by title/abstract word count and multiplied by 100; it is not a paper prevalence. The historical union adds trolling, flaming, and vandalism terms to all editions. Spam is already in the baseline harm lexicon. The strict governance cue excludes papers whose only matches are \emph{moderate}, \emph{moderated}, \emph{moderates}, or \emph{moderating}.
+\input{sections/tables/sensitivity}
+\subsection{Direct term overlap}
+Table~\ref{tab:overlap} gives the number of each topic's top twenty terms matched by each framing expression. For the community component, only \emph{moderation} matches the governance expression. The vocabulary-removal analysis masks every governance-matching unigram or bigram in the fitted vocabulary, not just the top twenty terms. The complete term-level overlap record will be released with the analysis materials upon publication.
+\input{sections/tables/topic_cue_overlap}
+\section{Exploratory Temporal Segmentation}
+\label{app:boundaries}
+For segmentation only, we normalize annual overlapping framing-cue rates together with an unmatched category. We concatenate square-root topic and framing shares, weighting the axes equally, and minimize within-segment squared deviation. Each edition has equal weight in this diagnostic. This differs from pooling papers within the fixed periods used in the main analysis.
+
+The baseline five-segment solution with a three-edition minimum has starts in 2007, 2011, 2017, 2021, and 2024. Its full partition recurs in 29/200 resamples (14.5\%). Exact boundary frequencies are given below. The baseline minimum makes 2024 the latest possible final start, so its apparent recurrence cannot establish a recent historical break. A second analysis uses the same 200 newly sampled paper compositions to compare two- and three-edition minima. It admits a 2025 start, which appears in 47/200 resamples (23.5\%). These are conditional exact-year frequencies, not confidence levels for historical events.
+\input{sections/tables/boundary_stability}
+We also retain results for three, four, and five segments and topic-only, framing-only, and joint representations. The segment count is not selected by an external validation criterion. Changes in component count and initialization can move boundaries. We therefore do not name a definitive sequence of five phases or use it to calculate the headline period comparisons. Broad emphases can overlap even when a segmentation algorithm must assign each year to one interval.
+
+\section{Independent Validation Protocol}
+\label{app:validation}
+The framing-validation protocol samples 20 papers per edition (400 total), without restricting to cue-positive cases. Two coders independently judge whether each abstract expresses a substantive objective matching each category, distinguishing central or evaluated concerns from incidental background. Multiple categories are allowed; uncertain cases receive a separate flag. The protocol materials withhold automatic predictions. Source links can reveal bibliographic identity; an optional local reader also withholds author and edition information.
+
+Report per-category Cohen's $\kappa$, raw agreement, and positive-label counts overall and by fixed period. After preserving the independent ratings, adjudicate disagreements and uncertainty. Compare the frozen cues with those adjudicated judgments, reporting precision, recall, and the TP/FP/FN/TN counts for each category and period. Since each edition contributes twenty coded papers regardless of its size, pooled period estimates should use inverse-inclusion weights $N_t/20$. Report denominators and unresolved judgments; undefined recall for a category with no positive gold labels must not be replaced by zero. Development-sample overlaps are flagged for a separate sensitivity analysis. Any lexicon revision based on these judgments requires a new held-out evaluation.
+
+For topic interpretability, the protocol contains five word-intrusion items per component (75 total). Each presents five high-weight terms and an intruder drawn from another component, with an IDF-matching rule to reduce rarity cues. Eighty topic-intrusion items (four papers per edition) present the three highest-weight topic word lists and one low-weight list for the document. Coders select the intruder without seeing the model weights or key. Report correct-choice rates, counts, uncertainty, and comments by component or period; chance rates are $1/6$ and $1/4$, respectively. These tasks assess interpretability; they do not independently establish the substantive validity of a label.
