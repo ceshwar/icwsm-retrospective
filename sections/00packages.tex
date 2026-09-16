@@ -1,0 +1,283 @@
+%-----ACM-Approved-----
+% \usepackage{balance,bm}
+\usepackage{color, colortbl}
+\usepackage[table]{xcolor}
+\usepackage{url}
+% \usepackage{hyperref}
+% \hypersetup{
+%     colorlinks=false,
+% }
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{soul}
+\usepackage{multirow}
+% \usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{siunitx}
+%---------------------
+
+% \usepackage{subcaption}
+\usepackage{booktabs} % For formal tables | Already in ACM
+% \usepackage[ruled]{algorithm2e} % For algorithms
+% \usepackage{graphicx} % Already in ACM
+% \usepackage{url}
+% \usepackage{graphicx}  %Already in ACM
+\usepackage{longtable,booktabs}
+
+
+%presently not allowed
+% \usepackage{capt-of}
+\frenchspacing  %Required
+
+\captionsetup{compatibility=false}
+
+% \usepackage{amsmath} %Already in ACM
+% \usepackage{array} %Already in ACM
+\usepackage{arydshln}
+\setlength\dashlinedash{0.2pt}
+\setlength\dashlinegap{1.5pt}
+\setlength\arrayrulewidth{0.3pt}
+% \usepackage{tcolorbox}
+
+% \usepackage [english]{babel}
+% \usepackage{url}
+% \usepackage [autostyle, english = american]{csquotes}
+\definecolor{linkColor}{RGB}{6,125,233}
+\definecolor{green}{rgb}{0.0, 0.65, 0.31}
+\definecolor{bleudefrance}{rgb}{0.19, 0.55, 0.91}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+\definecolor{grey}{HTML}{969696}
+\definecolor{violet}{HTML}{756bb1}
+\definecolor{dgrey}{HTML}{01665e}
+\definecolor{lgrey}{HTML}{5ab4ac}
+\definecolor{dgreen}{HTML}{005a32}
+\definecolor{purple}{HTML}{ae017e}
+
+%pt, bp, dd, mm, cm, ex, em, pc, in
+\def\greybar#1{{\color{grey}\rule{#1pc}{6pt}}}
+\def\dgreybar#1{{\color{dgrey}\rule{#1pc}{6pt}}}
+\def\lgreybar#1{{\color{lgrey}\rule{#1pc}{6pt}}}
+% \definecolor{editCol}{rgb}{0.0, 0.3, 0.5}
+% \definecolor{editCol}{rgb}{0.1, 0.1, 0.8}
+% \definecolor{editCol}{HTML}{0000FF}
+\definecolor{editCol}{HTML}{000000}
+\definecolor{maskCol}{HTML}{c51b7d}
+\definecolor{lrColor}{HTML}{8856a7}
+\definecolor{trColor}{HTML}{d01c8b}
+\definecolor{ctColor}{HTML}{4dac26}
+\definecolor{brickred}{HTML}{f03b20}
+
+% Define colorblind-friendly significance colors (blue sequential palette)
+\definecolor{sigone}{RGB}{222, 235, 247}    % p < 0.05 (lightest)
+\definecolor{sigtwo}{RGB}{158, 202, 225}    % p < 0.01 (medium)
+\definecolor{sigthree}{RGB}{107, 174, 214}  % p < 0.001 (darkest)
+
+% \definecolor{sigone}{HTML}{feebe2}    % p < 0.05 (lightest)
+% \definecolor{sigtwo}{HTML}{fbb4b9}    % p < 0.01 (medium)
+% \definecolor{sigthree}{HTML}{f768a1}  % p < 0.001 (darkest)
+
+% \definecolor{sigone}{HTML}{ffffff}    % p < 0.05 (lightest)
+% \definecolor{sigtwo}{HTML}{ffffff}    % p < 0.01 (medium)
+% \definecolor{sigthree}{HTML}{ffffff}  % p < 0.001 (darkest)
+
+% \definecolor{improveCol}{HTML}{253494}
+% \definecolor{worsenCol}{HTML}{d7191c}
+
+\definecolor{improveCol}{HTML}{4dac26}
+\definecolor{worsenCol}{HTML}{d01c8b}
+
+% \definecolor{improveCol}{HTML}{5e3c99}
+% \definecolor{worsenCol}{HTML}{e66101}
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{mscolor}{HTML}{01665e}
+\definecolor{nmscolor}{HTML}{bf812d}
+\definecolor{lgreen}{HTML}{ccece6}
+\definecolor{dolive}{HTML}{308014}
+
+\colorlet{tablerowcolor4}{gray!50} % Table row separator colour = 
+
+\def\impbar#1{%%
+  {\color{improveCol}\rule{#1mm}{5pt}}
+  }
+\def\worbar#1{%%
+  {\color{worsenCol}\rule{#1mm}{5pt}}
+  }
+  
+\def\trbar#1{%%
+  {\color{trColor}\rule{#19mm}{5pt}}
+  }
+\def\mybar#1{%%
+  {\color{bleudefrance}\rule{#19mm}{5pt}}
+  }
+\def\nubarGreen#1{%%
+  {\color{neutralGreen}\rule{#19mm}{5pt}}
+  }
+ \def\nubar#1{%%
+  {\color{neutralCol}\rule{#19mm}{5pt}}
+  }
+\def\BfBar#1{%%
+  {\color{BfTrColor}\rule{#19mm}{5pt}}
+  } 
+  \def\AfBar#1{%%
+  {\color{AfTrColor}\rule{#19mm}{5pt}}
+  }
+ \def\ftbar#1{%%
+  {\color{tablerowcolor4}\rule{#19mm}{5pt}}
+  }
+  
+% \def\incbar#1{%%
+%   {\color{worsenCol}\rule{#19dd}{5pt}}
+%   }
+% \def\decbar#1{%%
+%   {\color{improveCol}\rule{#19dd}{5pt}}
+%   }
+  
+\def\incbar#1{%%
+  {\color{improveCol}\rule{#19dd}{5pt}}
+  }
+\def\decbar#1{%%
+  {\color{worsenCol}\rule{#19dd}{5pt}}
+  }
+
+  
+\newcommand*{\textlabel}[2]{%
+  \edef\@currentlabel{#1}% Set target label
+  \phantomsection% Correct hyper reference link
+  #1\label{#2}% Print and store label
+}
+
+ \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\colorlet{tableheadcolor}{gray!25} % Table header colour = 25% gray
+\newcommand{\headcol}{\rowcolor{tableheadcolor}} %
+\colorlet{tablerowcolor}{gray!10} % Table row separator colour = 
+\colorlet{tablerowcolor2}{gray!45} % Table row separator colour = 
+\colorlet{tablerowcolor3}{gray!12} % Table row separator colour = 10% gray
+
+\newcommand{\rowcol}{\rowcolor{tablerowcolor}} %
+\newcommand{\rowcolmedium}{\rowcolor{tablerowcolor2}}
+\newcommand{\rowcollight}{\rowcolor{tablerowcolor3}} %
+
+\newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+\newcolumntype{a}{>{\columncolor{tablerowcolor}}r}
+% \newcolumntype{b}{>{\columncolor{white}}c}
+\definecolor{aicolor}{HTML}{018571}
+\definecolor{occolor}{HTML}{ff7799}
+
+% \definecolor{aicolor}{HTML}{018571}
+% \definecolor{occolor}{HTML}{ff7799}
+\definecolor{aicolor}{HTML}{fc8d62}
+\definecolor{occolor}{HTML}{253494}
+
+ \def\nuLRbar#1{%%
+  {\color{dpink}\rule{#10mm}{4pt}}
+  }
+\def\ftbar#1{%%
+  {\color{deepgrey}\rule{#1in}{6pt}}
+  }
+
+\def\aibar#1{%%
+  {\color{aicolor}\rule{#11ex}{6pt}}
+  }
+  
+\def\ocbar#1{%%
+  {\color{occolor}\rule{#11ex}{6pt}}
+  }
+
+% \def\aibarr#1{%%
+%   {\color{aicolor}\rule{#1cm}{6pt}}
+%   }
+  
+% \def\ocbarr#1{%%
+%   {\color{occolor}\rule{#1cm}{6pt}}
+%   }
+
+\def\aibarr#1{%%
+  {\color{aicolor}\rule{#1mm}{6pt}}
+  }
+  
+\def\ocbarr#1{%%
+  {\color{occolor}\rule{#1mm}{6pt}}
+  }
+
+\newcommand{\hlAI}[1]{\colorbox{aicolor!50}{~#1}}
+\newcommand{\hlOC}[1]{\colorbox{occolor!50}{#1}}
+\newcommand{\edit}[1]{{\textcolor{editCol}{#1}}}
+\newcommand{\mask}[1]{{\textcolor{maskCol}{#1}}}
+
+\def\nuLRbar#1{%%
+  {\color{lrColor}\rule{#10mm}{4pt}}
+  }
+\newcommand{\Bf}{\textit{Before}}
+\newcommand{\Af}{\textit{After}}
+\newcommand{\Tr}{\textit{Treated}}
+\newcommand{\Ct}{\textit{Control}}
+
+\newcommand{\bsky}{\textit{Bluesky}}
+\newcommand{\news}{\texttt{News}}
+
+\newcommand{\Is}{\textit{Isolation}}
+\newcommand{\Nm}{\textit{Normalization}}
+\newcommand{\Vc}{\textit{Vaccination}}
+
+% \newcommand{\Is}{\textit{Is}}
+% \newcommand{\Nm}{\textit{Nm}}
+% \newcommand{\Vc}{\textit{Vc}}
+
+\newcommand{\M}{$S_M$}
+\newcommand{\Sn}{$S_1$}
+\newcommand{\Snn}{$S_2$}
+\newcommand{\Snnn}{$S_3$}
+\newcommand{\RTE}{\textsf{RTE}}
+\newcommand{\ITE}{\textsf{ITE}}
+\newcommand{\ea}{\textit{et al.}}
+% \newcommand{\imp}[1]{{\textcolor{improveCol}{\it#1}}}
+% \newcommand{\wor}[1]{{\textcolor{worsenCol}{\it#1}}}
+\newcommand{\imp}[1]{{\textcolor{improveCol}{\it#1}}}
+\newcommand{\wor}[1]{{\textcolor{worsenCol}{\it#1}}}
+
+\renewcommand{\textrightarrow}{$\rightarrow$}
+\renewcommand{\textleftarrow}{$\leftarrow$}
+
+\newcommand{\cdib}{$\mathbf{CDI}$}
+% \newcommand{\somra}{$\mathnormal{LibRA}$}
+\newcommand{\cdi}{$\mathtt{CDI}$}
+
+\newcommand{\cze}{$\mathtt{C_0}$}
+% \newcommand{\con}{$\mathtt{C_1}$}
+\newcommand{\cone}{$\mathtt{C_1}$}
+\newcommand{\ctw}{$\mathtt{C_2}$}
+\newcommand{\cth}{$\mathtt{C_3}$}
+\newcommand{\cfo}{$\mathtt{C_4}$}
+
+\newcommand{\tabitem}{\textbullet~~}
+
+% \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\colorlet{tableheadcolor}{gray!25} % Table header colour = 25% gray
+% \newcommand{\headcol}{\rowcolor{tableheadcolor}} %
+% \newcommand{\rowcol}{\rowcolor{tablerowcolor}} %
+
+\definecolor{neutralCol}{HTML}{dd1c77}
+\definecolor{neutralGreen}{HTML}{31a354}
+\definecolor{NewBlue}{HTML}{1879ba}
+\definecolor{bleudefrance}{rgb}{0.19, 0.55, 0.91}  
+\definecolor{AfTrColor}{HTML}{0868ac}  
+\definecolor{BfTrColor}{HTML}{a8ddb5}  
+
+\definecolor{AfCtColor}{HTML}{b10026}  
+\definecolor{BfCtColor}{HTML}{fd8d3c}
+
+\graphicspath{ {figures/} }
+
+% \renewcommand{\sectionautorefname}{Section}
+% \renewcommand{\subsectionautorefname}{Section}
+% \renewcommand{\subsubsectionautorefname}{Section}
+% % \renewcommand{\subsubsectionautorefname}{Section}
+% % \renewcommand{\figureautorefname}{Figure}
+% \renewcommand{\figureautorefname}{Figure}
+
+% \newcommand{\para}[1]{\vspace{1em}\noindent\textbf{#1}~}
+% \newcommand{\itpara}[1]{\vspace{1em}\noindent\textit{#1}~}
+
+\newcommand{\para}[1]{\vspace{0.2em}\noindent\textbf{\textit{#1}~}}
+\newcommand{\itpara}[1]{\vspace{0.2em}\noindent\textit{#1}~}
